@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------------------
+   html5 reset
+---------------------------------------------------------------------------*/
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,ins,kbd,q,samp,small,strong,
+sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,
+figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+body{line-height:1;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+nav ul{list-style:none;}
+ul,ol,li,dl,dt,dd{list-style-type:none;list-style-position:outside;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:none;}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;}
+ins{background-color:#ff9;color:#000;text-decoration:none;}
+img{vertical-align:top;border:0;}
+em{font-style:italic;}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold;}
+del{text-decoration:line-through;}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}
+table{border-collapse:collapse;border-spacing:0;}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:0;padding:0;}
+input,select{vertical-align:middle;}
+
+/*--------------------------------------------------------------------------
+  #scrollbar
+---------------------------------------------------------------------------*/
+.mCSB_container { width: auto; overflow: hidden; }
+.mCSB_container.mCS_no_scrollbar { margin-right: 0; }
+.mCS_disabled .mCSB_container.mCS_no_scrollbar, .mCS_destroyed .mCSB_container.mCS_no_scrollbar { margin-right: 30px; }
+.mCustomScrollBox .mCSB_scrollTools { width: 9px; height: 100%; top: 0; right: 0; }
+.mCSB_scrollTools .mCSB_draggerContainer { position: absolute; top: 0; left: 0; bottom: 0; right: 0; height: auto; }
+.mCSB_scrollTools a + .mCSB_draggerContainer { margin: 20px 0; }
+.mCSB_scrollTools .mCSB_draggerRail { width: 9px; height: 100%; margin: 0 auto; }
+.mCSB_scrollTools .mCSB_dragger { cursor: pointer; width: 100%; height: 30px; }
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { width: 9px; height: 100%; margin: 0 auto; text-align: center; }
+.mCSB_scrollTools .mCSB_buttonUp, .mCSB_scrollTools .mCSB_buttonDown { display: block; position: relative; height: 20px; overflow: hidden; margin: 0 auto; cursor: pointer; }
+.mCSB_scrollTools .mCSB_buttonDown { top: 100%; margin-top: -40px; }
+.mCSB_horizontal .mCSB_container { height: auto; margin-right: 0; margin-bottom: 30px; overflow: hidden; }
+.mCSB_horizontal .mCSB_container.mCS_no_scrollbar { margin-bottom: 0; }
+.mCS_disabled .mCSB_horizontal .mCSB_container.mCS_no_scrollbar, .mCS_destroyed .mCSB_horizontal .mCSB_container.mCS_no_scrollbar { margin-right: 0; margin-bottom: 30px; }
+.mCSB_horizontal.mCustomScrollBox .mCSB_scrollTools { width: 100%; height: 16px; top: auto; right: auto; bottom: 0; left: 0; overflow: hidden; }
+.mCSB_horizontal .mCSB_scrollTools a + .mCSB_draggerContainer { margin: 0 20px; }
+.mCSB_horizontal .mCSB_scrollTools .mCSB_draggerRail { width: 100%; height: 2px; margin: 7px 0; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger { width: 30px; height: 100%; }
+.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { width: 100%; height: 4px; margin: 6px auto; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+.mCSB_horizontal .mCSB_scrollTools .mCSB_buttonLeft, .mCSB_horizontal .mCSB_scrollTools .mCSB_buttonRight { display: block; position: relative; width: 20px; height: 100%; overflow: hidden; margin: 0 auto; cursor: pointer; float: left; }
+.mCSB_horizontal .mCSB_scrollTools .mCSB_buttonRight { margin-left: -40px; float: right; }
+.mCustomScrollBox { -ms-touch-action: none;}
+.mCustomScrollBox:hover > .mCSB_scrollTools { opacity: 1; }
+.mCSB_scrollTools .mCSB_draggerRail { background: #444; background: #f1f1f1;}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { background: #444; background: #444; }
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar { background: #444; }
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar { background: #444; }
+.mCSB_scrollTools .mCSB_buttonUp, .mCSB_scrollTools .mCSB_buttonDown, .mCSB_scrollTools .mCSB_buttonLeft, .mCSB_scrollTools .mCSB_buttonRight {background-repeat: no-repeat; opacity: 0.4; }
+.mCSB_scrollTools .mCSB_buttonUp { background-position: 0 0; }
+.mCSB_scrollTools .mCSB_buttonDown { background-position: 0 -20px; }
+.mCSB_scrollTools .mCSB_buttonLeft { background-position: 0 -40px; }
+.mCSB_scrollTools .mCSB_buttonRight { background-position: 0 -56px; }
+.mCSB_scrollTools .mCSB_buttonUp:hover, .mCSB_scrollTools .mCSB_buttonDown:hover, .mCSB_scrollTools .mCSB_buttonLeft:hover, .mCSB_scrollTools .mCSB_buttonRight:hover { opacity: 0.75; }
+.mCSB_scrollTools .mCSB_buttonUp:active, .mCSB_scrollTools .mCSB_buttonDown:active, .mCSB_scrollTools .mCSB_buttonLeft:active, .mCSB_scrollTools .mCSB_buttonRight:active { opacity: 0.9; }
+.mCustomScrollBox .mCSB_scrollTools {
+box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px -1px;
+box-shadow: #e9e9e9 -4px 0px 5px -1px\9; /* IE8 */
+-webkit-box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px -1px;
+-moz-box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px -1px;
+behavior: url("/assets/matomeantena/htc/PIE.htc");
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+border-radius: 2px;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+behavior: url("/assets/matomeantena/htc/PIE.htc");
+}
+
+/*--------------------------------------------------------------------------
+   基本設定
+---------------------------------------------------------------------------*/
+@charset "UTF-8";
+* { padding: 0; margin: 0; border: 0; }
+html { overflow-y: scroll; }
+body { position: relative; min-width: 320px; font-family: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif; font-size: 12px; font-size: 75%\9; /* for IE */ color: #333; line-height: 1; -webkit-text-size-adjust: 100%; }
+h1, h2, h3, h4, h5, h6 { font-size: 1.0em; font-weight: normal; }
+table { border-collapse: collapse; }
+img { border: none; vertical-align: bottom; }
+li { list-style-type: none; }
+
+/* link */
+a { outline: none; color: #333; text-decoration: none; }
+a:link { color: #333; }
+a:hover { text-decoration: underline; }
+a:visited { color: #333; }
+
+/* clear */
+.cf { clear: both; }
+.cf:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+.cf { display: inline-block; }
+* html .cf { height: 1%; }
+.cf { display: block; }
+
+/* rollover */
+.ovrgp a img:hover, .ovrgp input[type='image']:hover, img.ovr:hover, input.ovr:hover { filter: alpha(opacity=70); -moz-opacity: 0.70; opacity: 0.70; }
+
+
+/*--------------------------------------------------------------------------
+  レイアウト設定
+---------------------------------------------------------------------------*/
+/* #header */
+#header { position: fixed; width: 100%; height: auto; min-height: 59px; padding: 0 15px; box-sizing: border-box; background: url(/assets/matomeantena/img/parts/bg01.png) !important; z-index: 1000; }
+@media screen and (min-width: 1024px) { #header { padding: 0; } }
+#header .wrap { width: 100%; max-width: 1024px; height: auto; min-height: 59px; margin: 0 auto; }
+#header h1 { float: left; width: 162px; padding: 18px 0; }
+#header .nav { overflow: hidden; }
+#header .cat dt { position: absolute; top: 12px; right: 140px; }
+#header .cat dt span { display: block; width: 38px; height: 33px; box-sizing: border-box; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; text-align: center; box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -webkit-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -moz-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; background: url(/assets/matomeantena/img/parts/i_menu.png) no-repeat center center !important; cursor: pointer; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+#header .cat dt span:hover, #header .cat dt.open span { background: rgba(255, 255, 255, 0.05) url(/assets/matomeantena/img/parts/i_menu.png) no-repeat center center !important; }
+#header .cat dd { display: none; position: absolute; top: 59px; left: 0; width: 100%; border-top: 1px solid #5a5a5a; background: url(/assets/matomeantena/img/parts/bg01.png); z-index: 2000; }
+#header .cat ul { overflow: hidden; }
+#header .cat li { float: left; width: 20%; border-bottom: 1px solid #5a5a5a; }
+#header .cat li a { display: block; padding: 15px 0; text-align: center; color: #f5f5f5; font-size: 92%; }
+#header .cat li.active a { text-decoration: underline;}
+#header .btn { float: right; width: 125px; margin-right: -12px; padding: 15px 0; }
+#header .btn li { float: left; margin-right: 12px; }
+#header .btn a { display: block; width: 28px; height: 28px; padding: 6px 0 0 !important; text-align: center; box-sizing: border-box; border-radius: 28px; -webkit-border-radius: 28px; -moz-border-radius: 28px; box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -webkit-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -moz-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+#header .btn a:hover { background: rgba(255, 255, 255, 0.05); }
+#header .btn .active a { background: rgba(255, 255, 255, 0.05); }
+@media screen and (min-width: 1024px) { #header .nav { margin-left: 180px; }
+#header .cat dt { display: none; }
+#header .cat dd { display: inline; overflow: hidden; position: static; border-top: none; background: none; }
+#header .cat { overflow: hidden; margin-right: 100px; padding: 10px 0; }
+#header .cat li { width: auto !important; border-bottom: none !important; }
+#header .cat li a { width: 101px; padding: 4px 0; } }
+/* #primary */
+#primary { padding: 89px 0 20px; background: url(/assets/matomeantena/img/parts/bg02.png) !important; }
+/* #secondary */
+#secondary { padding: 20px 0; background: url(/assets/matomeantena/img/parts/bg03.png) !important; }
+/* #footer */
+#footer { position: relative; padding: 0 10px; background: url(/assets/matomeantena/img/parts/bg05.png); }
+@media screen and (min-width: 1024px) { #footer { padding: 0; } }
+#footer .wrap { max-width: 1024px; min-height: 60px; margin: 0 auto; }
+#footer .ranking { min-height: 60px; background: url(/assets/matomeantena/img/parts/i_rank.png) no-repeat top 13px left 5px; background: url(/assets/matomeantena/img/parts/i_rank02.png) no-repeat top left\9; /* IE8 */ }
+#footer .ranking dt { position: absolute; top: 12px; right: 20px; }
+#footer .ranking dt span { display: block; width: 38px; height: 33px; background: url(/assets/matomeantena/img/parts/i_menu.png) no-repeat center center !important; box-sizing: border-box; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; text-align: center; box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -webkit-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -moz-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; cursor: pointer; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+#footer .ranking dt span:hover, #footer .ranking dt.open span { background: rgba(255, 255, 255, 0.05) url(/assets/matomeantena/img/parts/i_menu.png) no-repeat center center !important; }
+#footer .ranking dd { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: url(/assets/matomeantena/img/parts/bg01.png); z-index: 1000; }
+#footer .ranking ul { overflow: hidden; margin: 0 -10px 0 10px; }
+#footer .ranking li { float: left; margin: 0 10px 10px 0; }
+#footer .ranking a { display: block; padding: 10px 9px; box-sizing: border-box; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; text-align: center; box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -webkit-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; -moz-box-shadow: rgba(0, 0, 0, 0.7) 1px 0.5px, rgba(255, 255, 255, 0.3) 1px 1px inset; color: #fff; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+#footer .ranking a:hover { background: rgba(255, 255, 255, 0.05); text-decoration: none; }
+#footer .ranking .active a { background: rgba(255, 255, 255, 0.05); text-decoration: none; }
+@media screen and (min-width: 1024px) { #footer .ranking dt { display: none !important; }
+#footer .ranking dd { display: inline-block !important; position: static; width: auto; background: none; }
+#footer .ranking ul { margin: 0 -10px -10px 0; padding: 13px 0 3px 85px; } }
+
+/*--------------------------------------------------------------------------
+  common
+---------------------------------------------------------------------------*/
+.cont-inner { max-width: 1024px; margin: 0 15px; }
+@media screen and (min-width: 1024px) { .cont-inner { width: 1024px; margin: 0 auto; } }
+
+/*--------------------------------------------------------------------------
+  parts
+---------------------------------------------------------------------------*/
+
+/* .main-box */
+.main-box { border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px -3px; box-shadow: #cccccc 4px 4px 2px -3px \9; /* IE8 */ -webkit-box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px -3px; -moz-box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px -3px; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.main-box .ttl { overflow: hidden; min-height: 43px; border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; background: url(/assets/matomeantena/img/parts/bg04.png) !important; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.main-box h2 { float: left; min-height: 17px; color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); -webkit-text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); -moz-text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); font-weight: bold; }
+.main-box h2 a { color: #fff; }
+#keywords .main-box { margin-bottom: 20px; }
+#keywords .main-box:last-child { margin-bottom: 0px; }
+#index .main-box h2 { margin: 16px 0 0 17px; padding-left: 63px; background: url(/assets/matomeantena/img/parts/i_new.png) no-repeat left center; }
+#feed .main-box h2, #blog .main-box h2, #blogs .main-box h2, #keyword .main-box h2, #keywords .main-box h2 { margin: 12px 0 0 17px; padding-left: 0; font-size: 150%; }
+#feed .main-box h2, #blog .main-box h2, #keyword .main-box h2, #keywords .main-box h2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box; }
+#feed .main-box h2 { width: 300px; }
+#blog .main-box h2 { width: 140px; }
+@media screen and (min-width: 480px) { #feed .main-box h2 { width: 420px; } #blog .main-box h2 { width: 300px; } }
+@media screen and (min-width: 600px) { #feed .main-box h2 { width: 550px; } #blog .main-box h2 { width: 400px; } }
+@media screen and (min-width: 768px) { #feed .main-box h2 { width: 720px; } #blog .main-box h2 { width: 580px; } }
+@media screen and (min-width: 900px) { #feed .main-box h2 { width: 860px; } #blog .main-box h2 { width: 710px; } }
+@media screen and (min-width: 1024px) { #feed .main-box h2 { width: 1000px; } #blog .main-box h2 { width: 870px; } }
+#index .main-box h2 span, #keyword .main-box h2 span, #keywords .main-box h2 span { display: inline-block; padding-top: 4px; }
+.main-box .count { float: right; padding: 2px 5px 0 0; }
+.main-box .count.pc, .main-box .count.sp, .main-box .count.all { float: left; width: 60px; padding: 0 0 0 35px; box-sizing: border-box; }
+@media screen and (min-width: 480px) { .main-box .count.pc, .main-box .count.sp, .main-box .count.all { width: 80px; } }
+@media screen and (min-width: 600px) { .main-box .count.pc, .main-box .count.sp, .main-box .count.all { width: 105px; } }
+@media screen and (min-width: 768px) { .main-box .count.pc, .main-box .count.sp, .main-box .count.all { width: 160px; } }
+@media screen and (min-width: 900px) { .main-box .count.pc, .main-box .count.sp, .main-box .count.all { width: 193px; } }
+@media screen and (min-width: 1024px) { .main-box .count.pc, .main-box .count.sp, .main-box .count.all { width: 218px; } }
+.main-box .count.pc { margin-left: 20px; background: url(/assets/matomeantena/img/parts/i_pc.png) no-repeat left top 14px; background: url(/assets/matomeantena/img/parts/i_pc02.png) no-repeat left top\9; /* IE8 */ }
+@media screen and (min-width: 480px) { .main-box .count.pc { margin-left: 40px; } }
+@media screen and (min-width: 600px) { .main-box .count.pc { margin-left: 93px; } }
+@media screen and (min-width: 768px) { .main-box .count.pc { margin-left: 113px; } }
+@media screen and (min-width: 900px) { .main-box .count.pc { margin-left: 143px; } }
+@media screen and (min-width: 1024px) { .main-box .count.pc { margin-left: 223px; } }
+.main-box .count.sp { background: url(/assets/matomeantena/img/parts/i_sp.png) no-repeat left top 14px; background: url(/assets/matomeantena/img/parts/i_sp02.png) no-repeat left top\9; /* IE8 */ }
+.main-box .count.all { background: url(/assets/matomeantena/img/parts/i_all.png) no-repeat left top 14px; background: url(/assets/matomeantena/img/parts/i_all02.png) no-repeat left top\9; /* IE8 */ }
+.main-box .count li { margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#index .main-box .count li, #keyword .main-box .count li, #keywords .main-box .count li, #blog .main-box .count li { text-align: right; }
+.main-box .count li span { display: inline-block; padding-right: 30px; color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); -webkit-text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); -moz-text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); font-weight: bold; font-size: 117%; }
+.main-box .count .in span { background: url(/assets/matomeantena/img/parts/i_in01.png) no-repeat bottom right 13px; background: url(/assets/matomeantena/img/parts/i_in01.png) no-repeat bottom right\9; /* IE8 */ }
+.main-box .count .out span { background: url(/assets/matomeantena/img/parts/i_out01.png) no-repeat bottom right; background: url(/assets/matomeantena/img/parts/i_out01.png) no-repeat bottom right\9; /* IE8 */ }
+.main-box .list { border-radius: 0 0 3px 3px; -webkit-border-radius: 0 0 3px 3px; -moz-border-radius: 0 0 3px 3px; background: #fff !important; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+/* .main-box .list#scrollbar { overflow: auto; height: 375px; } */
+.main-box .list#scrollbar { overflow-x: hidden; overflow-y: scroll; height: 375px; }
+.main-box .list li { overflow: hidden; padding: 11px 0 12px; background: url(/assets/matomeantena/img/parts/dot.png) repeat-x bottom !important; }
+.main-box .list li.even { background: #f6f6f6 url(/assets/matomeantena/img/parts/dot.png) repeat-x bottom !important; }
+#feed .main-box .list li.current { background: #ffe9e9 url(/assets/matomeantena/img/parts/dot.png) repeat-x bottom !important; color: #cc0000 !important; }
+#feed .main-box .list li.current a { color: #cc0000 !important; }
+.main-box .list li.last { background: none !important; }
+.main-box .list li.even.last { background: #f6f6f6 !important; }
+.main-box .list span { display: inline-block; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box; }
+.main-box .list .pc, .main-box .list .sp, .main-box .list .all { overflow: hidden; width: 50px; padding-top: 2px; padding-bottom: 1px; }
+@media screen and (min-width: 480px) { .main-box .list .pc, .main-box .list .sp, .main-box .list .all { width: 80px; } }
+@media screen and (min-width: 600px) { .main-box .list .pc, .main-box .list .sp, .main-box .list .all { width: 100px; } }
+@media screen and (min-width: 768px) { .main-box .list .pc, .main-box .list .sp, .main-box .list .all { width: 158px; } }
+@media screen and (min-width: 900px) { .main-box .list .pc, .main-box .list .sp, .main-box .list .all { width: 190px; } }
+@media screen and (min-width: 1024px) { .main-box .list .pc, .main-box .list .sp, .main-box .list .all { width: 215px; } }
+.main-box .list .pc:before { content: "[PC] "; }
+.main-box .list .sp:before { content: "[SP] "; }
+.main-box .list .all:before { content: "[合計] "; }
+.main-box .list .in:after { content: " IN / "; }
+.main-box .list .out:after { content: " OUT"; }
+.main-box .list .rank { float: left; width: 55px; padding-top: 2px; padding-left: 5px; font-weight: bold; text-align: center; }
+.main-box .list .rank:after { content: "位"; }
+.main-box .list .data { float: left; padding-top: 2px; padding-left: 15px; font-weight: bold; }
+.main-box .list .time { display: inline-block; padding-left: 10px; }
+.main-box .list .favi { float: left; padding-left: 15px; }
+.main-box .list .text { overflow: hidden; width: 10%; padding: 0 15px 1px; font-size: 117%; line-height: 1.5\9; /* IE8 */ }
+#blog .main-box .list .text { float: left; width: 60%; }
+#blogs .main-box .list .text { float: left; width: 80px; }
+@media screen and (min-width: 480px) { .main-box .list .text { width: 20%; }
+#feed .main-box .list .text { width: 50%; }
+#blogs .main-box .list .text { width: 100px; } }
+@media screen and (min-width: 600px) { .main-box .list .text { width: 40%; }
+#feed .main-box .list .text { width: 60%; }
+#blog .main-box .list .text { width: 70%; }
+#blogs .main-box .list .text { width: 150px; } }
+@media screen and (min-width: 768px) { .main-box .list .text { width: 50%; }
+#feed .main-box .list .text { width: 70%; }
+#blog .main-box .list .text { width: 75%; }
+#blogs .main-box .list .text { width: 170px; } }
+@media screen and (min-width: 900px) { .main-box .list .text { width: 60%; }
+#feed .main-box .list .text { width: 75%; }
+#blog .main-box .list .text { width: 80%; }
+#blogs .main-box .list .text { width: 200px; } }
+@media screen and (min-width: 1024px) { .main-box .list .text { width: 670px; }
+#blog .main-box .list .text { width: 860px; }
+#blogs .main-box .list .text { width: 280px; } }
+.main-box .list .site { overflow: hidden; width: 175px; margin-top: -1px; padding-right: 10px; padding-bottom: 1px; font-size: 109%; line-height: 1.5\9; /* IE8 */ }
+@media screen and (min-width: 1024px) { #feed .main-box .list .site { width: 210px; } }
+/* .list-box */
+.list-wrap { overflow: hidden; margin: 0 -2% -20px 0; }
+.list-box { float: left; width: 48%; margin: 0 2% 20px 0; box-sizing: border-box; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 2px -3px; box-shadow: #666666 3px 3px 2px -3px \9; /* IE8 */ -webkit-box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 2px -3px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 2px -3px; border-top: 1px solid #e9e9e9; border-left: 1px solid #e9e9e9; background: #fff !important; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+@media screen and (min-width: 1024px) { .list-wrap { margin: 0 -20px -20px 0; }
+  .list-box { width: 502px; margin: 0 20px 20px 0; } }
+.list-box .head { overflow: hidden; height: 49px; border-bottom: 1px solid #ebebeb; }
+.list-box .flag { float: left; width: 52px; height: 44px; margin-left: 13px; }
+.list-box .flag span { display: block; padding: 10px 0 0 12px; font-family: "ヒラギノ角ゴ Pro W3", "HiraKakuPro-W3", "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; font-size: 150%; font-weight: bold; color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); -webkit-text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); -moz-text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); }
+.list-box .one { background: url(/assets/matomeantena/img/parts/flag01.png) no-repeat; }
+.list-box .two { background: url(/assets/matomeantena/img/parts/flag02.png) no-repeat; }
+.list-box .thr { background: url(/assets/matomeantena/img/parts/flag03.png) no-repeat; }
+.list-box .one span { padding: 10px 0 0 12px; font-size: 150%; }
+.list-box .two span { padding: 10px 0 0 7px; font-size: 150%; }
+.list-box .thr span { padding: 10px 0 0 0; font-size: 150%; }
+.list-box h3 { margin-left: 78px; padding: 15px 0; font-size: 109%; font-weight: bold; }
+.list-box h3 img { float: left; }
+.list-box h3 a { overflow: hidden; display: block; margin-right: 120px; padding-left: 5px; text-overflow: ellipsis; white-space: nowrap; line-height: 1.5\9; /* IE8 */ }
+.list-box .count { float: right; padding: 3px 7px 0 0; }
+.list-box .count li { margin-top: 7px; padding-right: 30px; font-weight: bold; text-align: right; font-size: 92%; }
+.list-box .count .in { background: url(/assets/matomeantena/img/parts/i_in02.png) no-repeat bottom 1px right 11px; background: url(/assets/matomeantena/img/parts/i_in02.png) no-repeat bottom right\9; /* IE8 */ }
+.list-box .count .out { background: url(/assets/matomeantena/img/parts/i_out02.png) no-repeat bottom 1px right; background: url(/assets/matomeantena/img/parts/i_out02.png) no-repeat bottom right\9; /* IE8 */ }
+.list-box .image { float: left; width: 125px; height: 175px; text-align: center; box-shadow: rgba(0, 0, 0, 0.05) 9px 0px 7px 0px; box-shadow: #eee 9px 0px 7px 0px\9; /* IE8 */ -webkit-box-shadow: rgba(0, 0, 0, 0.05) 9px 0px 7px 0px; -moz-box-shadow: rgba(0, 0, 0, 0.05) 9px 0px 7px 0px; background: #fff !important; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.list-box .thum { display: inline-block; padding-top: 13px; }
+.list-box .btn { display: inline-block; padding-top: 12px; }
+.list-box .list { margin-left: 125px; width: 376px; height: 175px; }
+.list-box .list li { background: url(/assets/matomeantena/img/parts/dot.png) repeat-x bottom; }
+.list-box .list li.last { background: none; }
+.list-box .list a { overflow: hidden; display: block; padding: 11px 12px 11px 30px; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box; background: url(/assets/matomeantena/img/parts/i_arw.png) no-repeat center left 14px; background: url(/assets/matomeantena/img/parts/i_arw02.png) no-repeat center left\9; /* IE8 */ font-size: 109%; }
+
+/* .bnr-box */
+.bnr-box { text-align: center; }
+#top_ad { margin: 0 0 40px; }
+#middle_ad { margin: 20px 0 20px; }
+#bottom_ad { margin: 40px 0 20px; }
+#ranking_ad1,
+#ranking_ad2,
+#ranking_ad3 { margin: 20px 0 20px; }
+
+@media screen and (min-width: 1024px) { .bnr-box img { width: auto; } }
+/* about */
+.about-wrap > section { padding: 40px; box-sizing: border-box; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px -3px; -webkit-box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px -3px; -moz-box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px -3px; background: #fff !important; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.about-wrap h2 { margin-bottom: 20px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); font-weight: bold; font-size: 200%; color: #F7F7F7; text-align: center; }
+.about-wrap section + h2 { margin-top: 40px; }
+.about-wrap .tbl01 { width: 100%; }
+.about-wrap .tbl01 tr.odd { background: #f6f6f6; }
+.about-wrap .tbl01 th { width: 200px; padding: 15px 20px; background: url(/assets/matomeantena/img/parts/dot02.png) repeat-y top left; font-size: 117%; text-align: left; vertical-align: middle; }
+.about-wrap .tbl01 td { padding: 15px 20px; background: url(/assets/matomeantena/img/parts/dot02.png) repeat-y top left; font-size: 117%; text-align: left; line-height: 1.5; }
+.about-box p { margin: 20px 0; }
+.about-box .arw-list li { padding: 0 0 0 12px; background: url(/assets/matomeantena/img/parts/i_arw.png) no-repeat center left; }
+.tool-box h3 { font-weight: bold; }
+.tool-box .form { margin-top: 20px; }
+.tool-box .notes { padding: 10px 0 20px; }
+.tool-box .form input[type="text"] { width: 100%; padding: 10px; border: 1px solid #d8d8d8 !important; box-sizing: border-box; border-radius: 2px/2px; box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 3px 3px inset; background: #fcfcfc !important; font-size: 134%; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.tool-box .form input[type="text"]:focus { border: 1px solid #66afe9 !important; box-shadow: rgba(213, 233, 249, 0.2) 0px 0px 3px 3px inset; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.tool-box .form input[type="submit"] { width: 100%; padding: 12px 0; box-sizing: border-box; border-radius: 2px/2px; border: none; cursor: pointer; font-size: 134%; font-weight: bold; color: #fff; background: #505050 !important; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.tool-box .form input[type="submit"]:hover { opacity: 0.9; }
+.rss-box { overflow: hidden; }
+.rss-box > div { width: 100%; }
+.rss-box h3 { margin-bottom: 15px; font-weight: bold; font-size: 150%; color: #3b3b3b; text-align: center; }
+.rss-box .rss30 h3 { margin-top: 20px; }
+@media screen and (min-width: 900px) { .rss-box > div { float: left; width: 47%; }
+.rss-box .rss30 { margin-left: 30px; }
+.rss-box .rss30 h3 { margin-top: 0; } }
+@media screen and (min-width: 1024px) { .rss-box > div { width: 450px; }
+.rss-box .rss30 { margin-left: 40px; } }
+.rss-box .tbl01 th { width: 100px; padding: 10px 0; text-align: center; }
+.rss-box .tbl01 td { padding: 10px 15px; }
+
+/* pager */
+.pager { overflow: hidden; margin: 20px 0 0; padding: 0 1px 4px; }
+.pager .prev { float: left; }
+.pager .next { float: right; }
+.pager li a { color:#F7F7F7; display: block; padding: 10px 10px; box-sizing: border-box; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; text-align: center; font-weight: bold; font-size: 117%; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); box-shadow: rgba(0, 0, 0, 0.5) 1px 0.5px, rgba(255, 255, 255, 0.5) 1px 1px inset; box-shadow: none\9; /* IE8 */ -webkit-box-shadow: rgba(0, 0, 0, 0.5) 1px 0.5px, rgba(255, 255, 255, 0.5) 1px 1px inset; -moz-box-shadow: rgba(0, 0, 0, 0.5) 1px 0.5px, rgba(255, 255, 255, 0.5) 1px 1px inset; background-color: rgba(142, 157, 160, 0.1); background-color: #b2bbbd\9; /* IE8 */ text-decoration: none; position: relative; behavior: url("/assets/matomeantena/htc/PIE.htc"); }
+.pager li a:hover { background-color: rgba(142, 157, 160, 0); background-color: #c9d0d2\9; /* IE8 */ }
+
+/* alert */
+.alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; }
+.alert h4 { margin-top: 0; color: inherit; }
+.alert .alert-link { font-weight: bold; }
+.alert > p,
+.alert > ul { margin-bottom: 0; }
+.alert > p + p { margin-top: 5px; }
+.alert-dismissable,
+.alert-dismissible { padding-right: 35px; }
+.alert-dismissable .close,
+.alert-dismissible .close { position: relative; top: -2px; right: -21px; color: inherit; }
+.alert-success { color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6; }
+.alert-success hr { border-top-color: #c9e2b3; }
+.alert-success .alert-link { color: #2b542c; }
+.alert-info { color: #31708f; background-color: #d9edf7; border-color: #bce8f1; }
+.alert-info hr { border-top-color: #a6e1ec; }
+.alert-info .alert-link { color: #245269; }
+.alert-warning { color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; }
+.alert-warning hr { border-top-color: #f7e1b5; }
+.alert-warning .alert-link { color: #66512c; }
+.alert-danger { color: #a94442; background-color: #f2dede; border-color: #ebccd1; }
+.alert-danger hr { border-top-color: #e4b9c0; }
+.alert-danger .alert-link { color: #843534; }
+
+/*--------------------------------------------------------------------------
+  共通定義
+---------------------------------------------------------------------------*/
+.mt-20 { margin-top: 20px; }
